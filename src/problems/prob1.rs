@@ -1,4 +1,5 @@
-// Library for euler problems
+// Problem 1
+// Multiples of 3 or 5
 
 pub fn p() -> i32 {
     let mut results: Vec<i32> = vec![];
