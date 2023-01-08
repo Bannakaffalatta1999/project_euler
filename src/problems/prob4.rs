@@ -1,24 +1,24 @@
-pub fn p() {
-    let mut x: i32 = 999;
-    let mut y: i32 = 999;
+pub fn p() -> i32 {
+    fn is_palendrome(n: i32) -> bool {
+        let string_number_rev = n
+            .to_string().chars().rev().collect::<String>();
+        let string_number = n.to_string();
 
-    let mut product;
-    let mut index;
-
-    loop {
-        product = x * y;
-
-        if product.to_string().len() % 2 == 0 {
-            index = product.to_string().len() / 2;
-            
-        } else if x == 1{
-            y -= 1;
-            x = 999;
+        if string_number_rev == string_number {
+            return true
         } else {
-            x -= 1
+            return false
         }
     }
-    
-    println!("{}", product);
-    println!("{}", index);
+
+    let mut largest = 0;
+    for x in 100..999 {
+        for y in 100..999 {
+            let possible_pal = x * y;
+            if is_palendrome(possible_pal) && possible_pal > largest{
+                 largest = possible_pal;
+            }
+        }
+    }
+    largest
 }
